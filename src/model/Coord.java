@@ -1,17 +1,10 @@
 package model;
 
+public class Coord implements Comparable<Coord> {
 
-
-/**
- * @author francoiseperrin
- *
- * Coordonnées des PieceModel
- */
-public class Coord implements Comparable<Coord>{
-	
-	private char colonne; 	// ['a'..'j']
-	private int ligne;		// [10..1]
-	static final int MAX = ModelConfig.LENGTH;	// 10
+	private char colonne; // ['a'..'j']
+	private int ligne; // [10..1]
+	static final int MAX = ModelConfig.LENGTH; // 10
 
 	public Coord(char colonne, int ligne) {
 		super();
@@ -27,43 +20,46 @@ public class Coord implements Comparable<Coord>{
 		return ligne;
 	}
 
-
 	@Override
 	public String toString() {
-		return "["+ligne + "," + colonne + "]";
+		return "[" + ligne + "," + colonne + "]";
 	}
-
 
 	/**
 	 * @param coord
 	 * @return true si 'a' <= col < 'a'+MAX et 1 < lig <= MAX
 	 */
-	public static boolean coordonnees_valides(Coord coord){
+	public static boolean coordonnees_valides(Coord coord) {
 
 		boolean ret = false;
 
-		// TODO Atelier 1
-		
+		ret = ((coord.colonne < 'a' + MAX) &&
+				(coord.colonne >= 'a') &&
+				(coord.ligne <= MAX) &&
+				(coord.ligne > 1));
+
 		return ret;
 	}
 
-
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 * 
-	 * La méthode compareTo() indique comment comparer un objet à l'objet courant
+	 * La mï¿½thode compareTo() indique comment comparer un objet ï¿½ l'objet courant
 	 * selon l'ordre dit naturel
-	 * Dans cet application, nous décidons que l'ordre naturel est celui 
-	 * correspondant au N° de la case d'un tableau 2D représenté par la Coord
-	 * ainsi le N° 1 correspond à la Coord ['a', 10], le N° 100 correspond à la Coord ['j', 1]  
+	 * Dans cet application, nous dï¿½cidons que l'ordre naturel est celui
+	 * correspondant au Nï¿½ de la case d'un tableau 2D reprï¿½sentï¿½ par la Coord
+	 * ainsi le Nï¿½ 1 correspond ï¿½ la Coord ['a', 10], le Nï¿½ 100 correspond ï¿½ la
+	 * Coord ['j', 1]
 	 */
 	@Override
 	public int compareTo(Coord o) {
 		int ret = 999;
-		
+
 		// TODO Atelier 1
-		
-		return ret ;
+
+		return ret;
 	}
 
 }
