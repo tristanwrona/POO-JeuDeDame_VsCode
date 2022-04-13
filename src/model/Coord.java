@@ -6,6 +6,23 @@ public class Coord implements Comparable<Coord> {
 	private int ligne; // [10..1]
 	static final int MAX = ModelConfig.LENGTH; // 10
 
+
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Coord other = (Coord) obj;
+		if (colonne != other.colonne)
+			return false;
+		if (ligne != other.ligne)
+			return false;
+		return true;
+	}
+
+
 	public Coord(char colonne, int ligne) {
 		super();
 		this.colonne = colonne;
@@ -32,12 +49,10 @@ public class Coord implements Comparable<Coord> {
 	public static boolean coordonnees_valides(Coord coord) {
 
 		boolean ret = false;
-
-		ret = ((coord.colonne < 'a' + MAX) &&
-				(coord.colonne >= 'a') &&
-				(coord.ligne <= MAX) &&
-				(coord.ligne > 1));
-
+		ret = ( (coord.colonne< 'a' + MAX) && 
+				(coord.colonne>= 'a') && 
+				(coord.ligne<= MAX) && 
+				(coord.ligne> 0) );
 		return ret;
 	}
 
@@ -55,11 +70,9 @@ public class Coord implements Comparable<Coord> {
 	 */
 	@Override
 	public int compareTo(Coord o) {
-
-		int thisvalue = (this.ligne - 1) * MAX + (this.colonne - 'a');
-		int othervalue = (o.ligne - 1) * MAX + (o.colonne - 'a');
-
-		return thisvalue - othervalue;
+		int thisValue = (MAX-this.ligne)*MAX + (this.colonne-'a'+1);
+		int oValue = (MAX-o.ligne)*MAX + (o.colonne-'a'+1);
+		return thisValue - oValue ;
 	}
 
 }

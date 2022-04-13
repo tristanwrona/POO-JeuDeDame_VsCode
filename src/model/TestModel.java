@@ -16,87 +16,55 @@ public class TestModel {
 		// Test classe Coord
 		//////////////////////////////////
 
-		// System.out.println("Test classe Coord");
-		// Coord c1 = new Coord('a', 7);
-		// Coord c2 = new Coord('b', 3);
-		// System.out.println("MAX = " + Coord.MAX); // MAX = 10
-		// System.out.println("c1 = " + c1); // c1 = [7,a]
-		// System.out.println("c2 = " + c2); // c2 = [3,b]
+		System.out.println("Test classe Coord");
+		Coord c1 = new Coord('a', 7);
+		Coord c2 = new Coord('b', 3);
+		System.out.println("MAX = " + Coord.MAX); // MAX = 10
+		System.out.println("c1 = " + c1); // c1 = [7,a]
+		System.out.println("c2 = " + c2); // c2 = [3,b]
 
-		// System.out.println("coord valides ('a',7) ? " +
-		// Coord.coordonnees_valides(c1)); // true
-		// System.out.println("coord valides ('w',9) ? " + Coord.coordonnees_valides(new
-		// Coord('w', 9))); // false
-		// System.out.println("coord valides ('b',11) ? " +
-		// Coord.coordonnees_valides(new Coord('b', 11))); // false
-		// System.out.println("c1.equals(c2) ? " + c1.equals(c2)); // false
-		// System.out.println("c1.equals(new Coord('a', 7)) ? " + c1.equals(new
-		// Coord('a', 7))); // true
-		// System.out.println("c1.equals(new String(\"Erreur\")) ? " + c1.equals(new
-		// String("Erreur"))); // false
-		// System.out.println("c1.compareTo(c2) ? " + c1.compareTo(c2)); // nb n�gatif
-		// // car c1 < c2
-		// System.out.println("c1.compareTo(new Coord('a', 7)) ? " + c1.compareTo(new
-		// Coord('a', 7))); // 0 car coords
-		// // �gales
+		System.out.println("coord valides ('a',7) ? " +
+		Coord.coordonnees_valides(c1)); // true
+		System.out.println("coord valides ('w',9) ? " + Coord.coordonnees_valides(new Coord('w', 9))); // false
+		System.out.println("coord valides ('b',11) ? " + Coord.coordonnees_valides(new Coord('b', 11))); // false
+		System.out.println("c1.equals(c2) ? " + c1.equals(c2)); // false
+		System.out.println("c1.equals(new Coord('a', 7)) ? " + c1.equals(new Coord('a', 7))); // true
+		System.out.println("c1.equals(new String(\"Erreur\")) ? " + c1.equals(new String("Erreur"))); // false
+		System.out.println("c1.compareTo(c2) ? " + c1.compareTo(c2)); // nb n�gatif
+		// car c1 < c2
+		System.out.println("c1.compareTo(new Coord('a', 7)) ? " + c1.compareTo(new Coord('a', 7))); // 0 car coords
+		// �gales
 
 		// //////////////////////////////////
 		// // Test classe PawnModel
 		// //////////////////////////////////
 		//
 		System.out.println("\nTest classe PawnModel");
-		PieceModel pieceModel1 = new PawnModel(new Coord('a', 7),
-				PieceSquareColor.BLACK);
-		PieceModel pieceModel2 = new PawnModel(new Coord('b', 4),
-				PieceSquareColor.WHITE);
-		PieceModel pieceModel3 = new PawnModel(new Coord('e', 7),
-				PieceSquareColor.BLACK);
-		System.out.println("pieceModel1 = " + pieceModel1); // [B[7,a]]
-		pieceModel1.move(new Coord('b', 6));
-		System.out.println("pieceModel1 = " + pieceModel1); // [B[6,b]]
+		PieceModel pieceModel1 = new PawnModel(new Coord('a', 7), PieceSquareColor.BLACK);
+		PieceModel pieceModel2 = new PawnModel(new Coord('b', 4), PieceSquareColor.WHITE);
+		PieceModel pieceModel3 = new PawnModel(new Coord('e', 7), PieceSquareColor.BLACK);
+		
+		System.out.println("pieceModel1 = " + pieceModel1);	// [B[7,a]]
+							pieceModel1.move(new Coord('b', 6));
+		System.out.println("pieceModel1 = " + pieceModel1);	// [B[6,b]]
+		System.out.println("isMoveOk ('b',4) --> ('c',5) = " 
+							+ pieceModel2.isMoveOk(new Coord('c',5),false)); // true : depl. de 1 case sans prise
+		System.out.println("isMoveOk ('e',7) --> ('d',6) = " 
+							+ pieceModel3.isMoveOk(new Coord('d',6),false)); // true : depl. de 1 case sans prise
+							pieceModel2.move(new Coord('c', 5));
+							pieceModel3.move(new Coord('d', 6));
+		System.out.println("isMoveOk ('c',5) --> ('e',7) = " 
+							+ pieceModel2.isMoveOk(new Coord('e',7),true)); // true : depl. de 2 cases avec prise
+		System.out.println("isMoveOk ('c',5) --> ('d',6) = " 
+							+ pieceModel2.isMoveOk(new Coord('d',6),true)); // false : depl. de 1 case avec prise
+		System.out.println("isMoveOk ('c',5) --> ('b',6) = " 
+							+ pieceModel2.isMoveOk(new Coord('b',6),true)); // false : depl. de 1 case avec prise
+		System.out.println("isMoveOk ('c',5) --> ('e',7) = " 
+							+ pieceModel2.isMoveOk(new Coord('e',7),false)); // false : depl. de 2 cases sans prise
+		System.out.println("hasThisCoord ('c',5)  = " 
+							+ pieceModel2.hasThisCoord(new Coord('c',5))); // true : ('c',5) = Coord objet r�f�renc� par pieceModel2
 
-		System.out.println("isMoveOk ('b',4) --> ('c',5) = " + pieceModel2.isMoveOk(new Coord('c', 5), false)); // true
-																												// :
-																												// depl.
-																												// de 1
-																												// case
-		// sans prise
 
-		System.out.println("isMoveOk ('e',7) --> ('d',6) = " + pieceModel3.isMoveOk(new Coord('d', 6), false)); // true
-																												// :
-																												// depl.
-																												// de 1
-																												// case
-		// sans prise
-
-		pieceModel2.move(new Coord('c', 5));
-		pieceModel3.move(new Coord('d', 6));
-		System.out.println(pieceModel3);
-		System.out.println("isMoveOk ('c',5) --> ('e',7) = " + pieceModel2.isMoveOk(new Coord('e', 7), true)); // true :
-																												// depl.
-																												// de 2
-																												// cases
-		// avec prise
-		System.out.println("isMoveOk ('c',5) --> ('d',6) = " + pieceModel2.isMoveOk(new Coord('d', 6), true)); // false
-																												// :
-																												// depl.
-																												// de 1
-																												// case
-		// avec prise
-		System.out.println("isMoveOk ('c',5) --> ('b',6) = " + pieceModel2.isMoveOk(new Coord('b', 6), true)); // false
-																												// :
-																												// depl.
-																												// de 1
-																												// case
-		// avec prise
-		System.out.println("isMoveOk ('c',5) --> ('e',7) = " + pieceModel2.isMoveOk(new Coord('e', 7), false)); // false
-																												// :
-																												// depl.
-																												// de 2
-																												// cases
-		// sans prise
-		System.out.println("hasThisCoord ('c',5) = " + pieceModel2.hasThisCoord(new Coord('c', 5))); // true : ('c',5) =
-																										// Coord de
 		// l'objet r�f�renc� par pieceModel2
 		//
 		//

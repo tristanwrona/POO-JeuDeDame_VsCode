@@ -17,7 +17,7 @@ public class PawnModel implements PieceModel {
 
 		this.coord = coord;
 		this.pieceColor = pieceColor;
-		this.direction = PieceSquareColor.BLACK.equals(this.getPieceColor()) ? 1 : -1;
+		this.direction = PieceSquareColor.BLACK.equals(this.getPieceColor()) ? -1 : 1;
 
 	}
 
@@ -70,26 +70,26 @@ public class PawnModel implements PieceModel {
 	public boolean isMoveOk(Coord targetCoord, boolean isPieceToCapture) {
 		boolean ret = false;
 
-		int colDistance = targetCoord.getColonne() - this.coord.getColonne();
-		int ligDistance = targetCoord.getLigne() - this.coord.getLigne();
-		int deltalig = (int) Math.signum(ligDistance);
-
-		if (Math.abs(colDistance) == Math.abs(ligDistance)) {
-
+		int colDistance = targetCoord.getColonne() - this.getColonne();
+		int ligDistance = targetCoord.getLigne() - this.getLigne();
+		int deltaLig = (int) Math.signum(ligDistance);
+		
+		// Cas d'un d�placement en diagonale
+		if (Math.abs(colDistance) == Math.abs(ligDistance)){
+			
+			// sans prise
 			if (!isPieceToCapture) {
-				if (deltalig == this.direction && Math.abs(colDistance) == 1) {
+				if (deltaLig == this.direction && Math.abs(colDistance) == 1) {
 					ret = true;
 				}
 			}
-
+			// avec prise
 			else {
 				if (Math.abs(colDistance) == 2) {
 					ret = true;
 				}
 			}
-
 		}
-
 		return ret;
 	}
 
