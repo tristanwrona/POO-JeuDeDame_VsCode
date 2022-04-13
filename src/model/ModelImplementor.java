@@ -30,36 +30,38 @@ public class ModelImplementor {
 
 	public PieceSquareColor getPieceColor(Coord coord) {
 		PieceSquareColor color = null;
+		PieceModel piece = this.findPiece(coord);
 
-		// TODO Atelier 1
+		if (piece != null) {
+			color = piece.getPieceColor();
+		}
 		
 		return color;
 	}
 
 	public boolean isPiecehere(Coord coord) {
-		boolean isPiecehere = false;
-
-		// TODO Atelier 1
-		
-		return isPiecehere;
+		return this.findPiece(coord) != null;	
 	}
 
 	public boolean isMovePieceOk(Coord initCoord, Coord targetCoord, boolean isPieceToTake) {
-
 		boolean isMovePieceOk = false;
-
-		// TODO Atelier 1
-		
+		PieceModel initPiece = this.findPiece(initCoord);
+		if (initPiece != null) {
+			isMovePieceOk = initPiece.isMoveOk(targetCoord, isPieceToTake ) ;
+		}
 		return isMovePieceOk;
 	}
 
 
 	public boolean movePiece(Coord initCoord, Coord targetCoord) {
-
 		boolean isMovePieceDone = false;
+		PieceModel initPiece = this.findPiece(initCoord);
+		if (initPiece != null) {
 
-		// TODO Atelier 1
-		
+			// d�placement pi�ce
+			initPiece.move(targetCoord) ;
+			isMovePieceDone = true;
+		}
 		return isMovePieceDone;
 	}
 
@@ -87,8 +89,13 @@ public class ModelImplementor {
 		 
 		PieceModel findPiece = null;
 
-		// TODO Atelier 1
-		
+		for(PieceModel piece : this.pieces) {
+
+			if(coord != null && piece.hasThisCoord(coord)) {
+				findPiece = piece;
+				break;
+			}
+		}
 		return findPiece;
 	}
 
