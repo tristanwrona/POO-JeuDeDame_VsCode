@@ -17,47 +17,34 @@ public class PawnModel implements PieceModel {
 
 		this.coord = coord;
 		this.pieceColor = pieceColor;
-		this.direction = (pieceColor == PieceSquareColor.BLACK) ? 1 : -1;
+		this.direction = PieceSquareColor.BLACK.equals(this.getPieceColor()) ? 1 : -1;
 
 	}
 
 	@Override
 	public char getColonne() {
-		char colonne = ' ';
 
-		colonne = coord.getColonne();
+		return coord.getColonne();
 
-		return colonne;
 	}
 
 	@Override
 	public int getLigne() {
-		int ligne = -1;
 
-		ligne = coord.getLigne();
+		return coord.getLigne();
 
-		return ligne;
 	}
 
 	@Override
 	public boolean hasThisCoord(Coord coord) {
-		boolean hasThisCoord = false;
 
-		if (this.coord.equals(coord)) {
-			hasThisCoord = true;
-		}
-
-		return hasThisCoord;
+		return this.coord.equals(coord);
 	}
 
 	@Override
 	public PieceSquareColor getPieceColor() {
-		PieceSquareColor color = null;
-
-		color = this.pieceColor;
-
-		return color;
-	}
+		
+		return pieceColor;
 
 	/*
 	 * (non-Javadoc)
@@ -82,8 +69,8 @@ public class PawnModel implements PieceModel {
 	public boolean isMoveOk(Coord targetCoord, boolean isPieceToCapture) {
 		boolean ret = false;
 
-		int colDistance = Math.abs(targetCoord.getColonne() - this.coord.getColonne());
-		int ligDistance = Math.abs(targetCoord.getLigne() - this.coord.getLigne());
+		int colDistance = targetCoord.getColonne() - this.coord.getColonne();
+		int ligDistance = targetCoord.getLigne() - this.coord.getLigne();
 		int deltalig = (int) Math.signum(ligDistance);
 
 		if (Math.abs(colDistance) == Math.abs(ligDistance)) {

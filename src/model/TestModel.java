@@ -16,23 +16,29 @@ public class TestModel {
 		// Test classe Coord
 		//////////////////////////////////
 
-		System.out.println("Test classe Coord");
-		Coord c1 = new Coord('a', 7);
-		Coord c2 = new Coord('b', 3);
-		System.out.println("MAX = " + Coord.MAX); // MAX = 10
-		System.out.println("c1 = " + c1); // c1 = [7,a]
-		System.out.println("c2 = " + c2); // c2 = [3,b]
+		// System.out.println("Test classe Coord");
+		// Coord c1 = new Coord('a', 7);
+		// Coord c2 = new Coord('b', 3);
+		// System.out.println("MAX = " + Coord.MAX); // MAX = 10
+		// System.out.println("c1 = " + c1); // c1 = [7,a]
+		// System.out.println("c2 = " + c2); // c2 = [3,b]
 
-		System.out.println("coord valides ('a',7) ? " + Coord.coordonnees_valides(c1)); // true
-		System.out.println("coord valides ('w',9) ? " + Coord.coordonnees_valides(new Coord('w', 9))); // false
-		System.out.println("coord valides ('b',11) ? " + Coord.coordonnees_valides(new Coord('b', 11))); // false
-		System.out.println("c1.equals(c2) ? " + c1.equals(c2)); // false
-		System.out.println("c1.equals(new Coord('a', 7)) ? " + c1.equals(new Coord('a', 7))); // true
-		System.out.println("c1.equals(new String(\"Erreur\")) ? " + c1.equals(new String("Erreur"))); // false
-		System.out.println("c1.compareTo(c2) ? " + c1.compareTo(c2)); // nb n�gatif
-		// car c1 < c2
-		System.out.println("c1.compareTo(new Coord('a', 7)) ? " + c1.compareTo(new Coord('a', 7))); // 0 car coords
-																									// �gales
+		// System.out.println("coord valides ('a',7) ? " +
+		// Coord.coordonnees_valides(c1)); // true
+		// System.out.println("coord valides ('w',9) ? " + Coord.coordonnees_valides(new
+		// Coord('w', 9))); // false
+		// System.out.println("coord valides ('b',11) ? " +
+		// Coord.coordonnees_valides(new Coord('b', 11))); // false
+		// System.out.println("c1.equals(c2) ? " + c1.equals(c2)); // false
+		// System.out.println("c1.equals(new Coord('a', 7)) ? " + c1.equals(new
+		// Coord('a', 7))); // true
+		// System.out.println("c1.equals(new String(\"Erreur\")) ? " + c1.equals(new
+		// String("Erreur"))); // false
+		// System.out.println("c1.compareTo(c2) ? " + c1.compareTo(c2)); // nb n�gatif
+		// // car c1 < c2
+		// System.out.println("c1.compareTo(new Coord('a', 7)) ? " + c1.compareTo(new
+		// Coord('a', 7))); // 0 car coords
+		// // �gales
 
 		// //////////////////////////////////
 		// // Test classe PawnModel
@@ -48,21 +54,24 @@ public class TestModel {
 		System.out.println("pieceModel1 = " + pieceModel1); // [B[7,a]]
 		pieceModel1.move(new Coord('b', 6));
 		System.out.println("pieceModel1 = " + pieceModel1); // [B[6,b]]
-
+		System.out.println(pieceModel2); // true
 		System.out.println("isMoveOk ('b',4) --> ('c',5) = " + pieceModel2.isMoveOk(new Coord('c', 5), false)); // true
 																												// :
 																												// depl.
 																												// de 1
 																												// case
 		// sans prise
+		System.out.println(pieceModel2); // true
 		System.out.println("isMoveOk ('e',7) --> ('d',6) = " + pieceModel3.isMoveOk(new Coord('d', 6), false)); // true
 																												// :
 																												// depl.
 																												// de 1
 																												// case
 		// sans prise
+		System.out.println(pieceModel3); // true
 		pieceModel2.move(new Coord('c', 5));
 		pieceModel3.move(new Coord('d', 6));
+		System.out.println(pieceModel3);
 		System.out.println("isMoveOk ('c',5) --> ('e',7) = " + pieceModel2.isMoveOk(new Coord('e', 7), true)); // true :
 																												// depl.
 																												// de 2
