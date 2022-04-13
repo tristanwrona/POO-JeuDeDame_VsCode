@@ -55,11 +55,11 @@ public class Coord implements Comparable<Coord> {
 	 */
 	@Override
 	public int compareTo(Coord o) {
-		int ret = 999;
 
-		// TODO Atelier 1
+		int thisvalue = (this.ligne - 1) * MAX + (this.colonne - 'a');
+		int othervalue = (o.ligne - 1) * MAX + (o.colonne - 'a');
 
-		return ret;
+		return thisvalue - othervalue;
 	}
 
 }
