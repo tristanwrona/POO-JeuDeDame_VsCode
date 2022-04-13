@@ -71,82 +71,69 @@ public class TestModel {
 		// //////////////////////////////////
 		// // Test classe ModelImplementor
 		// //////////////////////////////////
-		//
-		// System.out.println("\nTest classe ModelImplementor");
-		// ModelImplementor modelImpl = new ModelImplementor();
-		// System.out.println("findPieceModel ('b',4) = " + modelImpl.findPiece(new
-		// Coord('b',4))); // [W[4,b]]
-		// System.out.println("findPieceModel ('b',6) = " + modelImpl.findPiece(new
-		// Coord('b',6))); // null
-		// System.out.println("getPieceColor('b',4) = " + modelImpl.getPieceColor(new
-		// Coord('b',4))); // WHITE
-		// System.out.println("getPieceColor('b',6) = " + modelImpl.getPieceColor(new
-		// Coord('b',6))); // null
-		// System.out.println("isPiecehere('b',4) = " + modelImpl.isPiecehere(new
-		// Coord('b',4))); // true
-		// System.out.println("isPiecehere('b',6) = " + modelImpl.isPiecehere(new
-		// Coord('b',6))); // false
-		// System.out.println("isMovePieceOk ('b',4) -> ('c',5) = " +
-		// modelImpl.isMovePieceOk(new Coord('b',4), new Coord('c',5),false)); // true
-		// System.out.println("movePiece ('b',4) -> ('c',5) = " +
-		// modelImpl.movePiece(new Coord('b',4), new Coord('c',5))); // true : move OK
-		//
-		//
-		// //////////////////////////////////
-		// // Test classe Model
-		// //////////////////////////////////
-		//
-		// System.out.println("\nTest classe Model");
-		// Model model = new Model(); // constructeur cr�e model et l'affiche
-		// System.out.println("isPieceMoveable ('b',4) -> ('c',5) = "
-		// + model.isPieceMoveable(new Coord('b',4), new Coord('c',5))); // true
-		// System.out.println("isPieceMoveable ('c',7) -> ('d',6) = "
-		// + model.isPieceMoveable(new Coord('c',7), new Coord('d',6))); // false, tour
-		// des blancs
-		// System.out.println("isPieceMoveable ('c',3) -> ('d',4) = "
-		// + model.isPieceMoveable(new Coord('c',3), new Coord('d',4))); // false, case
-		// occup�e
-		// System.out.println("isPieceMoveable ('b',4) -> ('w',12) = "
-		// + model.isPieceMoveable(new Coord('b',4), new Coord('w',12))); // false, hors
-		// damier
-		//
-		// System.out.println("isMovePiecePossible ('b',4) -> ('c',5) = " +
-		// model.isMovePiecePossible(new Coord('b',4), new Coord('c',5), false)); //
-		// true
-		// System.out.println("movePiece ('b',4) -> ('c',5) = move OK - Cf. damier
-		// ci-dessous" );
-		// model.movePiece(new Coord('b',4), new Coord('c',5)); // move OK visible sur
-		// affichage
-		// System.out.println(model);
-		//
-		// model.switchGamer(); // Changement joueur - c'est au tour des noirs
-		// System.out.println("isPieceMoveable ('c',7) -> ('d',6) = " +
-		// model.isPieceMoveable(new Coord('c',7), new Coord('d',6))); // true c'est
-		// bien au joueur noir de jouer
-		// System.out.println("isMovePiecePossible ('c',7) -> ('c',6) = " +
-		// model.isMovePiecePossible(new Coord('c',7), new Coord('c',6), false)); //
-		// false pas d�placement en diagonale
-		//
-		//
-		// // on recr�e un objet Model sur lequel aucun mouvement n'a �t� effectu�
-		// // pour tester m�thode publique moveCapturePromote()
-		// // normalement elle doit �tre fonctionnelle sans modification si vous avez
-		// bien test� tout ce qui pr�c�de
-		// System.out.println("\n\nTest m�thode publique moveCapturePromote() du
-		// Model");
-		// model = new Model();
-		// System.out.println("moveCapturePromote ('b',4) -> ('c',5) = move OK - Cf.
-		// damier ci-dessous ");
-		// model.moveCapturePromote(new Coord('b',4), new Coord('c',5));
-		// System.out.println("moveCapturePromote ('e',7) -> ('d',6) = move OK - Cf.
-		// damier ci-dessous ");
-		// model.moveCapturePromote(new Coord('e',7), new Coord('d',6));
-		// System.out.println("moveCapturePromote ('c',5) -> ('e',7) = move KO on ne
-		// g�re pas encore les prises - Cf. damier ci-dessous ");
-		// model.moveCapturePromote(new Coord('c',5), new Coord('e',7));
-		// System.out.println("moveCapturePromote ('h',4) -> ('h',5) = move KO
-		// d�placement vertical - Cf. damier ci-dessous ");
-		// model.moveCapturePromote(new Coord('h',4), new Coord('h',5));
+		
+		System.out.println("\nTest classe ModelImplementor");
+		ModelImplementor modelImpl = new ModelImplementor();
+		System.out.println("findPieceModel ('b',4) = " + modelImpl.findPiece(new
+		Coord('b',4))); // [W[4,b]]
+		System.out.println("findPieceModel ('b',6) = " + modelImpl.findPiece(new
+		Coord('b',6))); // null
+		System.out.println("getPieceColor('b',4) = " + modelImpl.getPieceColor(new
+		Coord('b',4))); // WHITE
+		System.out.println("getPieceColor('b',6) = " + modelImpl.getPieceColor(new
+		Coord('b',6))); // null
+		System.out.println("isPiecehere('b',4) = " + modelImpl.isPiecehere(new
+		Coord('b',4))); // true
+		System.out.println("isPiecehere('b',6) = " + modelImpl.isPiecehere(new
+		Coord('b',6))); // false
+		System.out.println("isMovePieceOk ('b',4) -> ('c',5) = " +
+		modelImpl.isMovePieceOk(new Coord('b',4), new Coord('c',5),false)); // true
+		System.out.println("movePiece ('b',4) -> ('c',5) = " +
+		modelImpl.movePiece(new Coord('b',4), new Coord('c',5))); // true : move OK
+		
+		
+		////////////////////////////////
+		// Test classe Model
+		////////////////////////////////
+		
+		System.out.println("\nTest classe Model");
+		Model model = new Model(); // constructeur cr�e model et l'affiche
+		System.out.println("isPieceMoveable ('b',4) -> ('c',5) = "
+		+ model.isPieceMoveable(new Coord('b',4), new Coord('c',5))); // true
+		System.out.println("isPieceMoveable ('c',7) -> ('d',6) = "
+		+ model.isPieceMoveable(new Coord('c',7), new Coord('d',6))); // false, tour des blancs
+		System.out.println("isPieceMoveable ('c',3) -> ('d',4) = "
+		+ model.isPieceMoveable(new Coord('c',3), new Coord('d',4))); // false, cas occup�e
+		System.out.println("isPieceMoveable ('b',4) -> ('w',12) = "
+		+ model.isPieceMoveable(new Coord('b',4), new Coord('w',12))); // false, hors damier
+		
+		System.out.println("isMovePiecePossible ('b',4) -> ('c',5) = " +
+		model.isMovePiecePossible(new Coord('b',4), new Coord('c',5), false)); //	true
+		System.out.println("movePiece ('b',4) -> ('c',5) = move OK - Cf. damier ci-dessous" );
+		model.movePiece(new Coord('b',4), new Coord('c',5)); // move OK visible sur affichage
+		System.out.println(model);
+		
+		model.switchGamer(); // Changement joueur - c'est au tour des noirs
+		System.out.println("isPieceMoveable ('c',7) -> ('d',6) = " +
+		model.isPieceMoveable(new Coord('c',7), new Coord('d',6))); // true c'est bien au joueur noir de jouer
+		System.out.println("isMovePiecePossible ('c',7) -> ('c',6) = " +
+		model.isMovePiecePossible(new Coord('c',7), new Coord('c',6), false)); //false pas d�placement en diagonale
+		
+		
+		// on recr�e un objet Model sur lequel aucun mouvement n'a �t� effectu�
+		// pour tester m�thode publique moveCapturePromote()
+		// normalement elle doit �tre fonctionnelle sans modification si vous avez
+		//bien test� tout ce qui pr�c�de
+		System.out.println("\n\nTest m�thode publique moveCapturePromote() du		Model");
+		model = new Model();
+		System.out.println("moveCapturePromote ('b',4) -> ('c',5) = move OK - Cf. 		damier ci-dessous ");
+		model.moveCapturePromote(new Coord('b',4), new Coord('c',5));
+		System.out.println("moveCapturePromote ('e',7) -> ('d',6) = move OK - Cf. 		damier ci-dessous ");
+		model.moveCapturePromote(new Coord('e',7), new Coord('d',6));
+		System.out.println("moveCapturePromote ('c',5) -> ('e',7) = move KO on ne		g�re pas encore les prises - Cf. damier ci-dessous ");
+		model.moveCapturePromote(new Coord('c',5), new Coord('e',7));
+		System.out.println("moveCapturePromote ('h',4) -> ('h',5) = move KO 		d�placement vertical - Cf. damier ci-dessous ");
+		model.moveCapturePromote(new Coord('h',4), new Coord('h',5));
 
 	}
 
