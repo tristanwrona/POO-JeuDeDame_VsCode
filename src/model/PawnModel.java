@@ -43,8 +43,9 @@ public class PawnModel implements PieceModel {
 
 	@Override
 	public PieceSquareColor getPieceColor() {
-		
+
 		return pieceColor;
+	}
 
 	/*
 	 * (non-Javadoc)

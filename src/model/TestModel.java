@@ -54,21 +54,21 @@ public class TestModel {
 		System.out.println("pieceModel1 = " + pieceModel1); // [B[7,a]]
 		pieceModel1.move(new Coord('b', 6));
 		System.out.println("pieceModel1 = " + pieceModel1); // [B[6,b]]
-		System.out.println(pieceModel2); // true
+
 		System.out.println("isMoveOk ('b',4) --> ('c',5) = " + pieceModel2.isMoveOk(new Coord('c', 5), false)); // true
 																												// :
 																												// depl.
 																												// de 1
 																												// case
 		// sans prise
-		System.out.println(pieceModel2); // true
+
 		System.out.println("isMoveOk ('e',7) --> ('d',6) = " + pieceModel3.isMoveOk(new Coord('d', 6), false)); // true
 																												// :
 																												// depl.
 																												// de 1
 																												// case
 		// sans prise
-		System.out.println(pieceModel3); // true
+
 		pieceModel2.move(new Coord('c', 5));
 		pieceModel3.move(new Coord('d', 6));
 		System.out.println(pieceModel3);
