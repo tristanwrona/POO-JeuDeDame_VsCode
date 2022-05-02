@@ -124,15 +124,15 @@ public class TestModel {
 		// pour tester m�thode publique moveCapturePromote()
 		// normalement elle doit �tre fonctionnelle sans modification si vous avez
 		//bien test� tout ce qui pr�c�de
-		System.out.println("\n\nTest m�thode publique moveCapturePromote() du		Model");
+		System.out.println("\n\nTest m�thode publique moveCapturePromote() du Model");
 		model = new Model();
-		System.out.println("moveCapturePromote ('b',4) -> ('c',5) = move OK - Cf. 		damier ci-dessous ");
+		System.out.println("moveCapturePromote ('b',4) -> ('c',5) = move OK - Cf. damier ci-dessous ");
 		model.moveCapturePromote(new Coord('b',4), new Coord('c',5));
-		System.out.println("moveCapturePromote ('e',7) -> ('d',6) = move OK - Cf. 		damier ci-dessous ");
+		System.out.println("moveCapturePromote ('e',7) -> ('d',6) = move OK - Cf. damier ci-dessous ");
 		model.moveCapturePromote(new Coord('e',7), new Coord('d',6));
-		System.out.println("moveCapturePromote ('c',5) -> ('e',7) = move KO on ne		g�re pas encore les prises - Cf. damier ci-dessous ");
+		System.out.println("moveCapturePromote ('c',5) -> ('e',7) = move KO on ne g�re pas encore les prises - Cf. damier ci-dessous ");
 		model.moveCapturePromote(new Coord('c',5), new Coord('e',7));
-		System.out.println("moveCapturePromote ('h',4) -> ('h',5) = move KO 		d�placement vertical - Cf. damier ci-dessous ");
+		System.out.println("moveCapturePromote ('h',4) -> ('h',5) = move KO	d�placement vertical - Cf. damier ci-dessous ");
 		model.moveCapturePromote(new Coord('h',4), new Coord('h',5));
 
 	}

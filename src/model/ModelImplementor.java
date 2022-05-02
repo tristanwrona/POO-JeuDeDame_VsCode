@@ -67,16 +67,21 @@ public class ModelImplementor {
 
 	public void removePiece(Coord pieceToTakeCoord) {
 
-		// TODO Atelier 2
+		PieceModel pieceToTake = this.findPiece(pieceToTakeCoord);
+		if (pieceToTake != null) {
+			this.pieces.remove(pieceToTake);
+		}
 		
 	}
 
 	
 	public List<Coord> getCoordsOnItinerary(Coord initCoord, Coord targetCoord) {
 		List<Coord> coordsOnItinerary = null;
-		
-		// TODO Atelier 2
-		
+		PieceModel initPiece = this.findPiece(initCoord);
+		if (initPiece != null) {
+			coordsOnItinerary = initPiece.getCoordsOnItinerary(targetCoord) ;
+		}
+
 		return coordsOnItinerary;
 	}
 
@@ -115,15 +120,15 @@ public class ModelImplementor {
 		String[][] damier = new String[ModelConfig.LENGTH][ModelConfig.LENGTH];
 
 //		// cr�ation d'un tableau 2D avec les noms des pi�ces � partir de la liste de pi�ces
-//		for(PieceModel piece : this.pieces) {
-//
-//			PieceSquareColor color = piece.getPieceColor();
-//			String stColor = (PieceSquareColor.WHITE.equals(color) ? "--B--" : "--N--" );
-//
-//			int col = piece.getColonne() -'a';
-//			int lig = piece.getLigne() -1;
-//			damier[lig][col ] = stColor ;
-//		}
+		for(PieceModel piece : this.pieces) {
+
+			PieceSquareColor color = piece.getPieceColor();
+			String stColor = (PieceSquareColor.WHITE.equals(color) ? "--B--" : "--N--" );
+
+			int col = piece.getColonne() -'a';
+			int lig = piece.getLigne() -1;
+			damier[lig][col ] = stColor ;
+		}
 
 		// Affichage du tableau formatt�
 		st = "     a      b      c      d      e      f      g      h      i      j\n";
